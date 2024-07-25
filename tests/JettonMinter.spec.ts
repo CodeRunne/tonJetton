@@ -1,5 +1,5 @@
 import { Blockchain, SandboxContract, TreasuryContract } from '@ton/sandbox';
-import { buildJettonMetadataCell } from '../wrappers/helper/utils'
+import { buildJettonMetadataCell } from '../wrappers/utils/tep'
 import { Address, Cell, toNano } from '@ton/core';
 import { JettonMinter } from '../wrappers/JettonMinter';
 import { JettonWallet } from '../wrappers/JettonWallet';

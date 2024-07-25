@@ -2,7 +2,7 @@ import { Address, toNano } from '@ton/core';
 import { JettonMinter } from '../wrappers/JettonMinter';
 import { JettonWallet } from '../wrappers/JettonWallet';
 import { compile, NetworkProvider } from '@ton/blueprint';
-import { buildJettonContent } from '../wrappers/helper/utils'
+import { buildJettonContent } from '../wrappers/utils/tep'
 
 export async function run(provider: NetworkProvider) {
     const jettonMinter = provider.open(JettonMinter.createFromConfig({
@@ -12,7 +12,7 @@ export async function run(provider: NetworkProvider) {
             symbol: 'OSMS',
             description: 'A meme token for the world',
             image: 'https://i.pinimg.com/564x/cd/bf/58/cdbf58d81201ec6eed72065d3e3f1054.jpg'
-        }),
+        }), // or store offline => buildJettonOfflineContent(uri),
         jettonWalletCode: await compile('JettonWallet')
     }, await compile('JettonMinter')));
 

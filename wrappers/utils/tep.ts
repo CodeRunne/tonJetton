@@ -47,6 +47,15 @@ export const buildJettonMetadataCell = (data: { [s: string]: string } ): Cell =>
 	return beginCell().storeInt(0x00, PREFIX_SIZE).storeDict(dict).endCell();
 }
 
+export function buildJettonOfflineContent(uri: string): Cell {
+	return beginCell()
+		.storeInt(0x01, 8)
+		.storeBuffer(Buffer.from(uri, 'ascii'))
+	.endCell()
+}
+
+// ===== METHOD 2 ===== //
+
 export function toSha256(s: string): bigint {
 	return BigInt('0x' + sha256_sync(s).toString('hex'))
 }
