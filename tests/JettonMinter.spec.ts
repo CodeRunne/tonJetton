@@ -127,7 +127,7 @@ describe('JettonMinter', () => {
 
         expect(transferResult.transactions).toHaveTransaction({
             from: alice.address,
-            to: aliceJettonContract.a709ddress,
+            to: aliceJettonContract.address,
             success: true
         })
 
